@@ -1,8 +1,1 @@
 *.md
-!SCHEMA.md
-!memory_schema.md
-!redaction_rules.md
-!design-doc.md
-!TODOS.md
-!prompt/
-!prompt/*.md
