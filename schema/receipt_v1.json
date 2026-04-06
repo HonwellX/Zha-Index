@@ -1,43 +1,33 @@
 {
-  "version": "v1",
-  "input_meta": {
-    "user_age_band": "minor|adult|unknown",
-    "language": "en",
-    "requested_mode": "receipt|advisor"
-  },
-  "safety": {
-    "flags": [
-      "self_harm",
-      "abuse",
-      "coercion",
-      "sexual_pressure",
-      "minor_risk"
-    ],
-    "severity": "none|low|medium|high",
-    "user_guidance": "string"
-  },
   "receipt": {
-    "title": "string",
     "score": {
-      "label": "green|yellow|red",
-      "reason": "string"
+      "label": "green | yellow | red",
+      "reason": "string — Plain language explanation of the score. 1-2 sentences."
     },
-    "core_read": "string",
-    "evidence": [
+    "core_read": "string — Your sharp, specific read of the overall dynamic. 1-4 sentences. This is the thing that makes someone go 'oh wow, that's exactly it.' Commit to a clear take. Don't hedge unless the evidence is genuinely too thin, in which case say what you'd need to see to make a real call. This is the FIRST and BIGGEST thing the user reads — it must land immediately.",
+    "key_evidence": [
       {
-        "quote": "string",
-        "why_it_matters": "string"
+        "quote": "string — An exact quote (from pasted texts) or a paraphrase of what the user reported (from voice/description). Never invent quotes. Only include this item if this specific quote is genuinely revealing — if it's a sharp piece of evidence where the specific words matter.",
+        "read": "string — What this quote reveals, using the analytical lenses. Be specific about what the word choice, timing, or context tells you."
       }
     ],
-    "reality_check": "string",
-    "next_step": "string",
-    "confidence": 0.0
+    "real_talk": "string — The honest counterpoint. This might challenge the user's interpretation, point out their own role in the dynamic, or name something they're avoiding. Never cruel, always honest. Can also be 'actually, this person seems fine and your anxiety might be about something else.' Tone: direct but caring, like an older sister who loves you too much to let you keep fooling yourself.",
+    "your_move": "string — One sharp, general piece of advice. Punchy, 1-3 sentences. Should protect the user's self-respect and ideally double as a test of the other person's character. This is NOT the place for specific message drafts — that's what advisor mode is for. Think: the main thing you'd tell your little sister to do differently, starting now.",
+    "disclaimer": "This is one perspective to help you think — not professional advice. If something feels really wrong or unsafe, please talk to someone you trust."
   },
   "advisor": {
-    "tone": "gentle|direct|urgent",
-    "message": "string",
+    "message": "string — The longer conversational response for advisor mode. 3-8 short paragraphs. Starts with brief empathy (1-2 sentences max, no filler), moves to the core read, weaves in evidence and patterns naturally, includes the real talk, ends with a sharper version of the move and one follow-up question. Written entirely in the voice described in Layer 1. This is where the user gets coached — specific message suggestions, word-for-word scripts, tactical advice for their exact situation.",
     "follow_up_questions": [
-      "string"
+      "string — 1-3 short, specific, answerable questions that would help deepen the analysis. Not generic ('how does that make you feel?') but specific ('has he met your friends, or does he keep your relationship separate from the rest of his life?')."
     ]
+  },
+  "safety": {
+    "flags": [],
+    "severity": "none | moderate | high",
+    "user_guidance": "string — Empty string if severity is 'none'. Otherwise, direct and caring guidance as described in Layer 3."
+  },
+  "meta": {
+    "confidence": "low | medium | high",
+    "what_would_help": "string — If confidence is low or medium, what additional information would strengthen the analysis. E.g., 'Seeing how he texts when he wants something from you vs. when you need something would help a lot.' Empty string if confidence is high."
   }
 }
