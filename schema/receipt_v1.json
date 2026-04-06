@@ -1,0 +1,43 @@
+{
+  "version": "v1",
+  "input_meta": {
+    "user_age_band": "minor|adult|unknown",
+    "language": "en",
+    "requested_mode": "receipt|advisor"
+  },
+  "safety": {
+    "flags": [
+      "self_harm",
+      "abuse",
+      "coercion",
+      "sexual_pressure",
+      "minor_risk"
+    ],
+    "severity": "none|low|medium|high",
+    "user_guidance": "string"
+  },
+  "receipt": {
+    "title": "string",
+    "score": {
+      "label": "green|yellow|red",
+      "reason": "string"
+    },
+    "core_read": "string",
+    "evidence": [
+      {
+        "quote": "string",
+        "why_it_matters": "string"
+      }
+    ],
+    "reality_check": "string",
+    "next_step": "string",
+    "confidence": 0.0
+  },
+  "advisor": {
+    "tone": "gentle|direct|urgent",
+    "message": "string",
+    "follow_up_questions": [
+      "string"
+    ]
+  }
+}
